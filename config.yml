@@ -19,8 +19,7 @@ jobs:
             path: ~/ci/deploy.tar.gz
 
 
-  # Orchestrate or schedul
-  e a set of jobs
+  # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
   welcome:
