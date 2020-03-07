@@ -1,11 +1,9 @@
 version: 2.1
 # Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/openjdk:8u171
+
 jobs:
     deploy:
-      executor: welcome
+      docker: circleci/openjdk:8u171
       working_directory: ~/ci
 
       steps:
