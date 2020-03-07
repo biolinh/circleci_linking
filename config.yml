@@ -1,0 +1,29 @@
+version: 2.1
+# Use a package of configuration called an orb.
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/openjdk:8u181-jdk-stretch
+jobs:
+    deploy:
+      executor: welcome
+      working_directory: ~/ci
+
+      steps:
+        - checkout
+        - run: |
+            mkdir deploy
+            echo "Repo: $CIRCLE_PROJECT_REPONAME, buildnum: $CIRCLE_BUILD_NUM" > deploy/circleci_$CIRCLE_BUILD_NUM.txt
+            echo "branch $CIRCLE_BRANCH" > deploy/branch_$CIRCLE_BRANCH.txt
+            tar -czf deploy.tar.gz deploy
+        - store_artifacts:
+            path: ~/ci/deploy.tar.gz
+
+
+  # Orchestrate or schedul
+  e a set of jobs
+workflows:
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - deploy
