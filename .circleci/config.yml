@@ -13,9 +13,9 @@ jobs:
             mkdir deploy
             echo "Repo: $CIRCLE_PROJECT_REPONAME, buildnum: $CIRCLE_BUILD_NUM" > deploy/circleci_$CIRCLE_BUILD_NUM.txt
             echo "branch $CIRCLE_BRANCH" > deploy/branch_$CIRCLE_BRANCH.txt
-            zip -r deploy.zip deploy
+            zip - deploy.zip deploy
         - store_artifacts:
-            path: ~/ci/deploy.tar.gz
+            path: ~/ci/deploy.zip
 
 
   # Orchestrate or schedule a set of jobs
