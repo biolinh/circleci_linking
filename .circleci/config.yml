@@ -13,7 +13,7 @@ jobs:
             mkdir deploy
             echo "Repo: $CIRCLE_PROJECT_REPONAME, buildnum: $CIRCLE_BUILD_NUM" > deploy/circleci_$CIRCLE_BUILD_NUM.txt
             echo "branch $CIRCLE_BRANCH" > deploy/branch_$CIRCLE_BRANCH.txt
-            sudo apt-get install zip && zip - deploy.zip deploy
+            sudo apt-get install zip && zip -r deploy.zip deploy
         - store_artifacts:
             path: ~/ci/deploy.zip
 
